@@ -12,7 +12,7 @@
                 <div class="form-group mb-3">
                     <label for="reference_code">บัญชีต้นทาง</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" name="customer.name" />
+                        <input type="text" class="form-control" name="account.sourceaccount_id" [(ngModel)]="account.sourceaccount_id" />
                         <button class="btn input-group-addon bg-success text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     <i class="fa fa-search"></i>
                   </button>
@@ -25,7 +25,7 @@
                 <div class="form-group mb-3">
                     <label for="reference_code">บัญชีปลายทาง</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" name="customer.name" />
+                        <input type="text" class="form-control" name="account.destination_id" [(ngModel)]="account.destination_id" placeholder="" />
                         <button class="btn input-group-addon bg-success text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
                   <i class="fa fa-search"></i>
                 </button>
@@ -84,7 +84,7 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let item of accounts ; let i = index">
-                                <th scope="row" class="text-center">
+                                <th scope="row" class="text-center" (click)="chooseAccount(item)" data-bs-dismiss="modal">
                                     <a class="btn btn-sm btn-primary">
                                         เลือก
                                     </a>
@@ -126,15 +126,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let item of accounts2 ; let i = index">
-                                <th scope="row" class="text-center">
+                            <tr *ngFor="let item2 of accounts2 ; let i = index">
+                                <th scope="row" class="text-center" (click)="chooseAccount2(item2)" data-bs-dismiss="modal">
                                     <a class="btn btn-sm btn-primary">
                                       เลือก
                                   </a>
                                 </th>
-                                <td>{{ item.code }}</td>
-                                <td>{{ item.name }}</td>
-                                <td>{{ item.amount }}</td>
+                                <td>{{ item2.code }}</td>
+                                <td>{{ item2.name }}</td>
+                                <td>{{ item2.amount }}</td>
                             </tr>
                         </tbody>
                     </table>

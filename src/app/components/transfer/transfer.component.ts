@@ -11,6 +11,16 @@ export class TransferComponent implements OnInit {
 
   accounts: any;
   accounts2: any;
+  account2: any;
+
+  transfer = {
+
+  }
+
+  account = {
+    sourceaccount_id: null,
+    destination_id: null,
+  }
 
   constructor(private http: HttpClient, private shareService: ShareService) { }
 
@@ -31,6 +41,18 @@ export class TransferComponent implements OnInit {
       this.accounts2 = res.account2
     console.log(this.accounts2);
     });
+  }
+
+  chooseAccount2(item2: any) {
+    this.account.destination_id = item2.name;
+
+    console.log(this.account.destination_id);
+  }
+
+  chooseAccount(item: any) {
+    this.account.sourceaccount_id = item.name;
+
+    console.log(this.account.sourceaccount_id);
   }
 
 }
